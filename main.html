@@ -4,83 +4,98 @@
 
 <head>
 	<style>
-    body {
-      margin: 0;
+	  margin: 0;
       font-family: Arial, sans-serif;
     }
 
-    /* Hero Container */
+    /* Hero Container: Split Screen */
     .hero {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Left: Image Side */
+    .hero-image {
+      flex: 2; /* larger portion for image */
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Right: Content Side */
+    .hero-content {
+      flex: 1; /* smaller portion for text */
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Background Image */
-    .hero img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* ensures the image fills area properly */
-      z-index: -1;
-    }
-
-    /* Hero Content */
-    .hero-content {
+      background: white;
+      padding: 40px;
       text-align: center;
-      color: white;
-      background: rgba(0, 0, 0, 0.4); /* overlay for readability */
-      padding: 20px 40px;
-      border-radius: 10px;
     }
 
     .hero-content h1 {
-      margin-bottom: 10px;
-      font-size: 3rem;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      font-weight: bold;
+      color: black;
     }
 
     .hero-content p {
-      margin-bottom: 20px;
-      font-size: 1.2rem;
+      font-size: 1rem;
+      margin-bottom: 25px;
+      color: #333;
     }
 
-    /* Button/Link */
+    /* Button */
     .hero-content a {
       display: inline-block;
-      padding: 12px 24px;
+      padding: 10px 20px;
       background-color: #e60023; /* Pinterest red */
       color: white;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 25px;
+      border-radius: 4px;
       transition: background 0.3s ease;
     }
 
     .hero-content a:hover {
-      background-color: #ad081b; /* darker shade on hover */
+      background-color: #ad081b;
+    }
+
+    /* Responsive: stack on mobile */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero-image, .hero-content {
+        flex: unset;
+        height: 50vh;
+      }
     }
   </style>
+	
 </head>
 
-<body>
+<body> 
 	<div class="hero">
-    <!-- Background Image -->
-    <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29" alt="Pinterest Hero">
+    <!-- Left: Image -->
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29" alt="Hero Background">
+    </div>
 
-    <!-- Hero Content -->
+    <!-- Right: Content -->
     <div class="hero-content">
-      <h1>Discover New Ideas</h1>
-      <p>Get inspired, try new things, and explore trends on Pinterest.</p>
-      <a href="#">Explore Now</a>
+      <div>
+        <h1>Welcome to my Pinterest clone</h1>
+        <p>Discover new inspiration and save your favorite ideas</p>
+        <a href="#">Explore now</a>
+      </div>
     </div>
   </div>
-		
-	</div>
+  </style>
 	<!-- the entire body must be written by student -->
     <script type="text/javascript" src="./script.js">
 </script>
